@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Relatório de Lucros{% endblock %}
+
+{% block content %}
+<h1>Relatório de Lucros</h1>
+
+<p><strong>Faturamento Total:</strong> R$ {{ total_vendas }}</p>
+<p><strong>Custo Total:</strong> R$ {{ custo_total }}</p>
+<p><strong>Lucro:</strong> R$ {{ lucro }}</p>
+{% endblock %}

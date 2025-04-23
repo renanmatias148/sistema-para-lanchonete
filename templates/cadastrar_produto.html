@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Produto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-box {
+            max-width: 600px;
+            margin: auto;
+            margin-top: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-box">
+    <h3 class="text-center mb-4">Cadastrar Produto</h3>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome do Produto</label>
+            <input type="text" class="form-control" id="nome" name="nome" required>
+        </div>
+        <div class="mb-3">
+            <label for="preco" class="form-label">Preço de Venda (R$)</label>
+            <input type="number" step="0.01" class="form-control" id="preco" name="preco" required>
+        </div>
+        <div class="mb-3">
+            <label for="custo" class="form-label">Custo de Produção (R$)</label>
+            <input type="number" step="0.01" class="form-control" id="custo" name="custo" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Ingredientes</label>
+            {% for ingrediente in ingredientes %}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="ingredientes" value="{{ ingrediente.nome }}" id="{{ ingrediente.nome }}">
+                <label class="form-check-label" for="{{ ingrediente.nome }}">
+                    {{ ingrediente.nome }}
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-success w-100">Cadastrar</button>
+    </form>
+</div>
+
+</body>
+</html>

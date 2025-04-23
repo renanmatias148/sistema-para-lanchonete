@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Controle de Estoque{% endblock %}
+
+{% block content %}
+<h1>Estoque de Ingredientes</h1>
+
+<form method="POST">
+    <label for="ingrediente">Ingrediente:</label>
+    <input type="text" name="ingrediente" id="ingrediente" required>
+
+    <label for="quantidade">Quantidade a Adicionar:</label>
+    <input type="number" name="quantidade" id="quantidade" required>
+
+    <input type="submit" value="Atualizar Estoque">
+</form>
+
+{% if estoque %}
+<table>
+    <tr>
+        <th>Ingrediente</th>
+        <th>Quantidade</th>
+    </tr>
+    {% for item in estoque %}
+    <tr>
+        <td>{{ item.nome }}</td>
+        <td>{{ item.quantidade }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>Estoque vazio.</p>
+{% endif %}
+{% endblock %}

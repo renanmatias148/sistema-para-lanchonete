@@ -1,0 +1,23 @@
+<!-- templates/cadastrar_usuario.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Usuário</title>
+</head>
+<body>
+    <h1>Cadastrar Novo Usuário</h1>
+    <form method="POST">
+        Nome: <input type="text" name="nome" required><br>
+        Senha: <input type="password" name="senha" required><br>
+        Nível: 
+        <select name="nivel" required>
+            <option value="admin">Admin</option>
+            <option value="gerente">Gerente</option>
+            <option value="funcionario">Funcionário</option>
+        </select><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+    <a href="{{ url_for('menu') }}">Voltar ao Menu</a>
+</body>
+</html>

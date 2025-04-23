@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Histórico de Vendas{% endblock %}
+
+{% block content %}
+<h1>Histórico de Vendas</h1>
+
+{% if vendas %}
+<table>
+    <tr>
+        <th>Produto</th>
+        <th>Quantidade</th>
+        <th>Total da Venda</th>
+        <th>Data</th>
+    </tr>
+    {% for venda in vendas %}
+    <tr>
+        <td>{{ venda.produto }}</td>
+        <td>{{ venda.quantidade }}</td>
+        <td>R$ {{ venda.total }}</td>
+        <td>{{ venda.data }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>Nenhuma venda registrada.</p>
+{% endif %}
+{% endblock %}
